@@ -1,3 +1,7 @@
+kim = User.create(name: "Kim", title: "Volunteer", email: "kim@kim.com", password: "kimk", password_confirmation: "kimk")
+
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #

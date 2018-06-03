@@ -1,10 +1,10 @@
 <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
 
     <%= f.label :name, "Select your name" %><br>
-    <%= f.text_field :name %>
+    <%= f.collection_select :name, @users, :name, :name %><br>
 
     <%= f.label :password, "Enter your password" %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %><br>
 
     <%= f.submit "Log In" %>
 
