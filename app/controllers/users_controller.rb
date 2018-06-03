@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to user_path(@user), notice: 'User was successfully created.'
       else
         render :new
       end
@@ -24,9 +24,20 @@ class UsersController < ApplicationController
       @message ||= false
     end
 
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
-  def current_user
+  def set_user
     @user = User.find(params[:id])
   end
 

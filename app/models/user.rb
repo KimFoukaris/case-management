@@ -4,4 +4,10 @@ class User < ActiveRecord::Base
   has_many :updates
   has_many :beneficiaries, through: :updates
 
+  validates :name, presence: true, uniqueness: true
+  validates :title, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, confirmation: true
+  validates :password_confirmation, presence: true
+
 end
