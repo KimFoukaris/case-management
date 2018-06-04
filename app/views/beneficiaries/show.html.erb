@@ -14,15 +14,6 @@
     <p>Gender: <%= @beneficiary.gender %></p>
     <p>ID number: <%= @beneficiary.id_number %></p>
     <p><%= link_to 'Edit', edit_beneficiary_path(@beneficiary) %></p>
+    <p><%= link_to 'View Case Notes', beneficiary_updates_path(@beneficiary) %></p>
   </div>
 </div>
-
-<h3>Recent Case Notes</h3>
-
-<% @beneficiary.updates.each do |update| %>
-  <p><%= update.created_at %>   <%= update.notes %></p>
-<% end %>
-
-<h3>Add a Note</h3>
-
-<%= render 'form_updates' %>
