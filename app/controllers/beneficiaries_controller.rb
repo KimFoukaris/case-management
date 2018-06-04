@@ -2,7 +2,7 @@ class BeneficiariesController < ApplicationController
   before_action :set_beneficiary, only: [:show, :edit, :update, :destroy]
 
   def index
-    @beneficiaires = Beneficiary.all
+    @beneficiaries = Beneficiary.all
   end
 
   def new
@@ -21,6 +21,17 @@ class BeneficiariesController < ApplicationController
   def show
     @message = params[:message] if params[:message]
     @message ||= false
+  end
+
+  def edit
+  end
+
+  def update
+    if @beneficiary.update(beneficiary_params)
+      redirect_to beneficiary_path(@beneficiary), notice: 'Beneficiary was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   private
