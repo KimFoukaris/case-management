@@ -1,3 +1,4 @@
 <% @beneficiaries.each do |beneficiary| %>
-<%= beneficiary.name %><br>
+<p> Name: <%= beneficiary.name %>, ID Number: <%= beneficiary.id_number %>
+  <%= link_to "See details", beneficiary_path(beneficiary) %></p>
 <% end %>
