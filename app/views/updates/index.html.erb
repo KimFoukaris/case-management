@@ -1,3 +1,5 @@
 <% @updates.each do |update| %>
 <p> Date: <%= update.created_at %> Notes: <%= update.notes %> %></p>
 <% end %>
+
+<%= link_to "Create New Note", new_beneficiary_update_path %>
