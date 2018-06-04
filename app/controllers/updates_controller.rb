@@ -18,6 +18,15 @@ class UpdatesController < ApplicationController
     end
   end
 
+  def show
+    @message = params[:message] if params[:message]
+    @message ||= false
+  end
+
+  def edit
+  end
+
+
   private
 
   def set_beneficiary
