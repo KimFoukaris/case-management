@@ -13,6 +13,8 @@
     <ul class="navbar">
       <% if current_user %>
         <li class="navbar"><%= link_to "Home", root_path %></li>
+        <li class="navbar"><%= link_to "Users", users_path %></li>
+        <li class="navbar"><%= link_to "Beneficiaries", beneficiaries_path %></li>
         <li class="navbar"><%= link_to "Log Out", logout_path %></li>
       <% else %>
         <li class="navbar"><%= link_to "Home", root_path %></li>
