@@ -1,0 +1,44 @@
+<%= form_for @beneficiary do |f| %>
+  <% if @beneficiary.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@beneficiary.errors.count, "error") %> prohibited this beneficiary from being saved:
+      </h2>
+
+      <ul>
+      <% @beneficiary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date_of_birth, "Date of Birth" %>
+    <br>
+    <%= f.datetime_field :date_of_birth, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gender %>
+    <br>
+    <%= f.text_field :gender, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :id_number %>
+    <br>
+    <%= f.number_field :id_number, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>

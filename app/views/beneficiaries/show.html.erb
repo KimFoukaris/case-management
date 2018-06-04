@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<% if @message %>
+  <div class="center alert">
+    <p><%= @message %></p>
+  </div>
+<% end %>
+
+<div class="center">
+
+  <div class="info">
+    <p><strong>Name:</strong> <%= @beneficiary.name %></p>
+    <p>Date of Birth: <%= @beneficiary.date_of_birth %></p>
+    <p>Gender: <%= @beneficiary.gender %></p>
+    <p>ID number: <%= @beneficiary.id_number %></p>
+    <p><%= link_to 'Edit', edit_beneficiary_path(@beneficiary) %></p>
+  </div>
+</div>

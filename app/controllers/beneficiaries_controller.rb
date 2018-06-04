@@ -1,4 +1,5 @@
 class BeneficiariesController < ApplicationController
+  before_action :set_beneficiary, only: [:show, :edit, :update, :destroy]
 
   def index
     @beneficiaires = Beneficiary.all
@@ -24,7 +25,11 @@ class BeneficiariesController < ApplicationController
 
   private
 
-  def user_params
+  def set_beneficiary
+    @beneficiary = Beneficiary.find(params[:id])
+  end
+
+  def beneficiary_params
     params.require(:beneficiary).permit(
       :name,
       :dob,
