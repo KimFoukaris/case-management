@@ -1,0 +1,32 @@
+<%= form_for @beneficiary do |f| %>
+  <% if @beneficiary.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@beneficiary.errors.count, "error") %> prohibited this update from being saved:
+      </h2>
+
+      <ul>
+      <% @beneficiary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :updates do |update| %>
+
+    <%= update.hidden_field :user_id, :value => session[:user_id] %>
+    <%= update.hidden_field :beneficiary_id, :value => @beneficiary.id %>
+
+    <div class="form-group">
+      <%= update.label :notes, "Notes" %>
+      <br>
+      <%= update.text_field :notes, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+<% end %>

@@ -46,6 +46,11 @@ class BeneficiariesController < ApplicationController
       :dob,
       :gender,
       :id_number,
+      updates_attributes: [
+        :user_id,
+        :beneficiary_id,
+        :notes
+      ]
     )
   end
 
