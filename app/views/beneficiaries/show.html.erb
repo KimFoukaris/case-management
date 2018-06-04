@@ -15,9 +15,14 @@
     <p>ID number: <%= @beneficiary.id_number %></p>
     <p><%= link_to 'Edit', edit_beneficiary_path(@beneficiary) %></p>
   </div>
-
-  <h1>Add an Update</h1>
-
-  <%= render 'form_updates' %>
-
 </div>
+
+<h3>Recent Case Notes</h3>
+
+<% @beneficiary.updates.each do |update| %>
+  <p><%= update.created_at %>   <%= update.notes %></p>
+<% end %>
+
+<h3>Add a Note</h3>
+
+<%= render 'form_updates' %>
