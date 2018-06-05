@@ -1,5 +1,5 @@
 class UpdatesController < ApplicationController
-  before_action :set_beneficiary, only: [:create, :show, :edit, :update, :destroy]
+  before_action :set_beneficiary
 
   def index
     @updates = Update.all
