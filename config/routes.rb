@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :beneficiaries do
-    resources :updates
+  resources :beneficiaries, only: [:show] do
+    resources :updates, only: [:show, :index]
+
+  resources :beneficiaries, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :updates, only: [:new, :create, :edit, :update, :destroy]
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
