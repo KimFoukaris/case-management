@@ -1,8 +1,11 @@
 class UpdatesController < ApplicationController
-  before_action :set_beneficiary
 
   def index
-    @updates = Update.all
+    if params[:beneficiary_id]
+      @updates = Beneficiary.find(params[:beneficiary_id]).updates
+    else
+      @updates = Update.all
+    end
   end
 
   def new
@@ -19,13 +22,23 @@ class UpdatesController < ApplicationController
   end
 
   def show
+    @update = Update.find(params[:id])
     @message = params[:message] if params[:message]
     @message ||= false
   end
 
   def edit
+      @update = Update.find(params[:id])
   end
 
+  def update
+    @update = Update.find(params[:id])
+    if @update.update(update_params)
+      redirect_to update_path(@update), notice: 'Note was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
   private
 
