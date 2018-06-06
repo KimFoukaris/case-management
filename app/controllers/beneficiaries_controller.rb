@@ -1,5 +1,6 @@
 class BeneficiariesController < ApplicationController
   before_action :set_beneficiary, only: [:show, :edit, :update, :destroy]
+  before_action :require_logged_in
 
   def index
     @beneficiaries = Beneficiary.all
