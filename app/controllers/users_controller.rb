@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_logged_in
+  before_action :require_logged_in, only: [:index, :show, :edit, :update]
 
   def index
     @users = User.all
@@ -29,10 +29,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(@user), notice: 'User was successfully updated.'
+    if @user.id == session[:user_id]
+      if @user.update(user_params)
+        redirect_to user_path(@user), notice: 'User was successfully updated.'
+      else
+        render 'edit'
+      end
     else
-      render :edit
+      redirect_to edit_user_path, notice: 'You can only edit your own user profile.'
     end
   end
 
