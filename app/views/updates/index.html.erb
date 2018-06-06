@@ -1,3 +1,9 @@
+<% if @beneficiary.present? %>
+  <h2>Updates for <%= @beneficiary.name %></h2>
+<% else %>
+  <h2> All Updates </h2>
+<% end %>
+
 <% @updates.each do |update| %>
 <p> Date: <%= update.created_at.strftime("%B %d, %Y") %> Note: <%= update.notes %>
   <%= link_to "Edit Note", edit_update_path(update) %></p>

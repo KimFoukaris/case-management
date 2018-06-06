@@ -2,6 +2,7 @@ class UpdatesController < ApplicationController
 
   def index
     if params[:beneficiary_id]
+      @beneficiary = Beneficiary.find(params[:beneficiary_id])
       @updates = Beneficiary.find(params[:beneficiary_id]).updates
     else
       @updates = Update.all
