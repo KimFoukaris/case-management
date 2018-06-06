@@ -13,9 +13,9 @@ class UpdatesController < ApplicationController
   end
 
   def create
-    @update = @beneficiary.updates.build(beneficiary_id: params[:beneficiary_id], notes: params[:update][:notes], user_id: session[:user_id])
+    @update = Update.new(update_params)
     if @update.save
-      redirect_to beneficiary_update_path(params[:beneficiary_id], @update), notice: 'Note was successfuly created.'
+      redirect_to beneficiary_update_path(params[:update][:beneficiary_id], @update), notice: 'Note was successfuly created.'
     else
       render :new
     end
@@ -43,7 +43,7 @@ class UpdatesController < ApplicationController
   private
 
   def set_beneficiary
-    @beneficiary = Beneficiary.find(params[:beneficiary_id])
+    @beneficiary = Beneficiary.find_by(id: params[:beneficiary_id])
   end
 
   def update_params

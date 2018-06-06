@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     resources :updates, only: [:show, :index]
   end
 
-  resources :beneficiaries, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :updates, only: [:new, :create, :edit, :update, :destroy]
+  resources :beneficiaries, only: [:index, :new, :create, :edit, :update]
+  resources :updates, only: [:show, :index, :new, :create, :edit, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
