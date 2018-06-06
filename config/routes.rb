@@ -8,11 +8,12 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :beneficiaries, only: [:index, :new, :create, :edit, :update]
+
   resources :beneficiaries, only: [:show] do
     resources :updates, only: [:show, :index]
   end
 
-  resources :beneficiaries, only: [:index, :new, :create, :edit, :update]
   resources :updates, only: [:show, :index, :new, :create, :edit, :update]
 
 

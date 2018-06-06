@@ -43,7 +43,7 @@ class BeneficiariesController < ApplicationController
   def beneficiary_params
     params.require(:beneficiary).permit(
       :name,
-      :dob,
+      :date_of_birth,
       :gender,
       :id_number,
       updates_attributes: [

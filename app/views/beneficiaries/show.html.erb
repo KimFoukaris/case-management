@@ -10,7 +10,7 @@
 
   <div class="info">
     <p><strong>Name:</strong> <%= @beneficiary.name %></p>
-    <p>Date of Birth: <%= @beneficiary.date_of_birth %></p>
+    <p>Date of Birth: <%= @beneficiary.date_of_birth.strftime("%B %d, %Y") %></p>
     <p>Gender: <%= @beneficiary.gender %></p>
     <p>ID number: <%= @beneficiary.id_number %></p>
     <p><%= link_to 'Edit Beneficiary Profile', edit_beneficiary_path(@beneficiary) %></p>
