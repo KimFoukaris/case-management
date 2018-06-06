@@ -6,4 +6,6 @@
   </div>
 <% end %>
 
-<%= @update.notes %>
+<%= @update.notes %><br><br>
+
+<%= link_to "Return to Beneficiary Updates", beneficiary_updates_path(@update.beneficiary) %>
