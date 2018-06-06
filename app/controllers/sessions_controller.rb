@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: "You are now logged in to Case Management"
     else
-      redirect_to login_path
+      redirect_to login_path, notice: "You must login with a valid password"
     end
   end
 
