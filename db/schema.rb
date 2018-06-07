@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603043601) do
+ActiveRecord::Schema.define(version: 20180607085431) do
 
   create_table "beneficiaries", force: :cascade do |t|
     t.string   "name"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20180603043601) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_confirmation"
-    t.boolean  "admin",                 default: false
   end
 
 end
