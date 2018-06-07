@@ -53,7 +53,8 @@ class UpdatesController < ApplicationController
       :user_id,
       :beneficiary_id,
       :notes,
-      :complete
+      :complete,
+      :date
     )
   end
 

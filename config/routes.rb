@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :updates, only: [:show, :index, :new, :create, :edit, :update]
 
-
+  get '/reports/late_updates' => 'reports#late_updates'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

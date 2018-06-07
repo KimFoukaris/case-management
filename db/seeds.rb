@@ -1,4 +1,4 @@
-kim = User.create(name: "Kim", title: "Volunteer", email: "kim@kim.com", password: "kimk", password_confirmation: "kimk", admin: true)
+kim = User.create(name: "Kim", title: "Volunteer", email: "kim@kim.com", password: "kimk", password_confirmation: "kimk")
 natalie = User.create(name: "Natalie", title: "Case Worker", email: "natalie@natalie.com", password: "natalien", password_confirmation: "natalien")
 
 janet = Beneficiary.create(name: "Janet", gender: "F", id_number: 5123456)
