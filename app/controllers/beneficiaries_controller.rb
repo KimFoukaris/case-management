@@ -1,5 +1,5 @@
 class BeneficiariesController < ApplicationController
-  before_action :set_beneficiary, only: [:show, :edit, :update, :destroy]
+  before_action :set_beneficiary, only: [:show, :edit, :update]
   before_action :require_logged_in
 
   def index
@@ -13,7 +13,7 @@ class BeneficiariesController < ApplicationController
   def create
     @beneficiary = Beneficiary.new(beneficiary_params)
     if @beneficiary.save
-      redirect_to beneficiary_path(@beneficiary), notice: 'Beneficiary was successfully created.'
+      redirect_to beneficiary_path(@beneficiary), notice: 'Beneficiary was successfully created'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class BeneficiariesController < ApplicationController
 
   def update
     if @beneficiary.update(beneficiary_params)
-      redirect_to beneficiary_path(@beneficiary), notice: 'Beneficiary was successfully updated.'
+      redirect_to beneficiary_path(@beneficiary), notice: 'Beneficiary was successfully updated'
     else
       render :edit
     end

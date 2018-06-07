@@ -1,4 +1,5 @@
 class UpdatesController < ApplicationController
+  before_action :set_update, only: [:show, :edit, :update]
   before_action :require_logged_in
 
   def index
@@ -17,26 +18,23 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new(update_params)
     if @update.save
-      redirect_to beneficiary_update_path(params[:update][:beneficiary_id], @update), notice: 'Note was successfuly created.'
+      redirect_to beneficiary_update_path(params[:update][:beneficiary_id], @update), notice: 'Note was successfuly created'
     else
       render :new
     end
   end
 
   def show
-    @update = Update.find(params[:id])
     @message = params[:message] if params[:message]
     @message ||= false
   end
 
   def edit
-      @update = Update.find(params[:id])
   end
 
   def update
-    @update = Update.find(params[:id])
     if @update.update(update_params)
-      redirect_to update_path(@update), notice: 'Note was successfully updated.'
+      redirect_to update_path(@update), notice: 'Note was successfully updated'
     else
       render :edit
     end
@@ -44,8 +42,8 @@ class UpdatesController < ApplicationController
 
   private
 
-  def set_beneficiary
-    @beneficiary = Beneficiary.find_by(id: params[:beneficiary_id])
+  def set_update
+    @update = Update.find(params[:id])
   end
 
   def update_params
