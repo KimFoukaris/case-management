@@ -7,7 +7,7 @@ class Update < ActiveRecord::Base
   validates :beneficiary_id, presence: true
   validates :date, presence: true
 
-  scope :incomplete, -> {where(complete: false)}
+  scope :incomplete, -> { where(complete: false) }
   scope :late, -> { where('date < ?', 1.week.ago) }
 
 end
