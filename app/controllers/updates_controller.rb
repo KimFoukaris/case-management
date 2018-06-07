@@ -52,7 +52,8 @@ class UpdatesController < ApplicationController
     params.require(:update).permit(
       :user_id,
       :beneficiary_id,
-      :notes
+      :notes,
+      :complete
     )
   end
 
