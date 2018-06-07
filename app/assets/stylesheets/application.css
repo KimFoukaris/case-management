@@ -23,6 +23,9 @@ li.navbar a:hover {
     background-color: #111;
 }
 
+#notice {
+    color: blue;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
