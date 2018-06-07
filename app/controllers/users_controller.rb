@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user), notice: 'User was successfully created.'
+        redirect_to user_path(@user), notice: 'User was successfully created'
       else
         render :new
       end
@@ -31,12 +31,12 @@ class UsersController < ApplicationController
   def update
     if @user.id == session[:user_id]
       if @user.update(user_params)
-        redirect_to user_path(@user), notice: 'User was successfully updated.'
+        redirect_to user_path(@user), notice: 'User was successfully updated'
       else
         render 'edit'
       end
     else
-      redirect_to edit_user_path, notice: 'You can only edit your own user profile.'
+      redirect_to edit_user_path, notice: 'You can only edit your own user profile'
     end
   end
 
