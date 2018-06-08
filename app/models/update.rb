@@ -10,4 +10,8 @@ class Update < ActiveRecord::Base
   scope :incomplete, -> { where(complete: false) }
   scope :late, -> { where('date < ?', 1.week.ago) }
 
+  def formatted_date
+    date.strftime("%B %d, %Y")
+  end
+
 end

@@ -1,5 +1,5 @@
 <%= render '/users/notices' %>
 
-<%= @update.notes %><br><br>
+<p> Date: <%= @update.formatted_date %> Note: <%= @update.notes %> Complete: <%= check_box_tag :complete, 1, @update.complete %></p><br><br>
 
 <%= link_to "Return to Beneficiary Updates", beneficiary_updates_path(@update.beneficiary) %>

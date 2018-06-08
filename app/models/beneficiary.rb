@@ -6,4 +6,8 @@ class Beneficiary < ActiveRecord::Base
   validates :name, presence: true
   validates :id_number, presence: true, uniqueness: true, length: { is: 7 }
 
+  def formatted_date_of_birth
+    date_of_birth.strftime("%B %d, %Y")
+  end
+
 end
