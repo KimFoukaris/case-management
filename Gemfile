@@ -27,8 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 #Use Omnioath and omnioath-google for login option
-gem 'omniauth-google', '~> 1.0', '>= 1.0.2'
-gem 'omniauth', '~> 1.0'
+gem 'omniauth-google-oauth2'
+#gem 'omniauth', '~> 1.0'
+
+#Use dotenv-rails to securely handle environment variables
 
 gem 'dotenv-rails'
 # Use Unicorn as the app server

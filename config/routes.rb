@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/sessions/create' => 'sessions#create'
+  get '/auth/google_oauth2/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   resources :users
