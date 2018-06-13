@@ -11,15 +11,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if auth['info']['email']
+    if auth
       @user = User.where(email: auth['info']['email']).first_or_create do |user|
         user.name = auth['info']['name']
         user.password = SecureRandom.hex
       end
-      
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: "You are now logged in"
-     else
+    else
       @user = User.find_by(name: params[:user][:name])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
