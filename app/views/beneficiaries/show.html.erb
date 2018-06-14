@@ -1,7 +1,5 @@
 <%= render '/users/notices' %>
 
-<div class="center">
-
   <div class="info">
     <p><strong>Name:</strong> <%= @beneficiary.name %></p>
     <p>Date of Birth: <%= @beneficiary.formatted_date_of_birth if @beneficiary.date_of_birth %></p>
@@ -10,4 +8,3 @@
     <p><%= link_to 'Edit Beneficiary Profile', edit_beneficiary_path(@beneficiary) %></p>
     <p><%= link_to 'View Case Notes', beneficiary_updates_path(@beneficiary) %></p>
   </div>
-</div>
