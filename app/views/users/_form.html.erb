@@ -2,7 +2,7 @@
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-    <div class="field_with_errors">
+    <div class="errors">
       <h2>
         <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
       </h2>
@@ -15,38 +15,20 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <br>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :title, "Job Title" %>
-    <br>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <br>
-    <%= f.text_field :email, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <br>
-    <%= f.password_field :password, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation, "Please confirm your password" %>
-    <br>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
+  <div class="fields_with_errors">
+    <p><%= f.label :name %>:  <%= f.text_field :name %></p>
+  
+    <p><%= f.label :title, "Job Title" %>:  <%= f.text_field :title %></p>
+  
+    <p><%= f.label :email %>:  <%= f.text_field :email %></p>
+  
+    <p><%= f.label :password %>:  <%= f.password_field :password %></p>
+  
+    <p><%= f.label :password_confirmation, "Please confirm your password" %>:  <%= f.password_field :password_confirmation %></p>
   </div>
 
   <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit %>
   </div>
 
 <% end %>
