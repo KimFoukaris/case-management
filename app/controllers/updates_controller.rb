@@ -12,7 +12,11 @@ class UpdatesController < ApplicationController
   end
 
   def new
-    @update = Update.new
+    if params[:beneficiary_id] && !Beneficiary.exists?(params[:beneficiary_id])
+      redirect_to beneficiaries_path, notice: "Beneficiary not found."
+    else
+      @update = Update.new(beneficiary_id: params[:beneficiary_id])
+    end
   end
 
   def create

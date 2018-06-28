@@ -16,7 +16,7 @@
   <div class="fields_with_errors">
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
   
-    <p><%= f.label "Beneficiary" %>:  <%= f.collection_select :beneficiary_id, Beneficiary.all, :id, :name %></p>
+    <%= f.hidden_field :beneficiary_id %>
   
     <p><%= f.label "Date" %>:  <%= f.date_field :date %></p>
   

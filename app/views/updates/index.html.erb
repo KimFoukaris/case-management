@@ -9,5 +9,7 @@
   <%= link_to "Edit Update", edit_update_path(update) %></p>
 <% end %>
 
-<%= link_to "Create New Update", new_update_path %><br>
+<% if @beneficiary.present? %>
+  <%= link_to "Create New Update", new_beneficiary_update_path %><br>
+<% end %>
 <%= link_to "View Late Update Report", reports_late_updates_path %>
